@@ -1,6 +1,25 @@
 
+<% if user_signed_in? %>
+  <ul>
+    
+    <li><%= link_to 'About', home_about_path %></li>
+    <li><%= link_to '商品一覧', items_path %></li>
+    <li><%= link_to '新規登録', new_admin_session_path %></li>
+    
+  </ul>
+  
+  <% else %>
+  
+  <ul>
+    
+    <li></li>
+    
+  </ul>
+  
+<% end 
 
-<h5>管理者ログイン</h5>
+
+  <h5>管理者ログイン</h5>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
