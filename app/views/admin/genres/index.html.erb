@@ -1,4 +1,3 @@
-
   <ul>
 
     <li><%= link_to '商品一覧', admin_items_path %></li>
@@ -22,25 +21,22 @@
 
 <% end %>
 
+<div class="col-md-5">
 
-<div class="col-md-8">
   <table class="table table-hover table-inverse">
-    <tr>
+    <th colspan="1">
       <th>ジャンル</th>
-      <th colspan="3"></th>
-    </tr>
+    </th>
 
-    <%= @genres.each do |genre| %>
+    <% @genres.each do |genre| %>
 
     <tr>
-
-      <th><%= link_to admin_genre_path(genre.costomer_id) do %></th>
-
-      <th><%= link_to genre.title, admin_genres_path(genre.id) %></th>
-      <th><%= f.submit "編集する", class: "btn btn_sm btn-success" %></th>
+      
+      <th><%= genre.name %></th>
+      <th><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn_sm btn-success" %></th>
+      
     </tr>
 
-    <% end %>
     <% end %>
 
   </table>

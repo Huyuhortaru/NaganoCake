@@ -5,38 +5,42 @@ class Admin::GenresController < ApplicationController
     @genres = Genre.all
   end
 
+  def new
+    @genre = Genre.new
+  end
+
   def create
     @genre = Genre.new(genre_params)
     @genres = Genre.all
     # @genre.customer_id = current_costomer.id
 
     if @genre.save
-      redirect_to "/admin/#{@genre.id}"
+      redirect_to "/admin/genres"
     else
       render :index
     end
   end
-  
-  def show
-    
+
+  def edit
+    @genre = Genre.find(params[:id])
   end
-  
+
   def update
+    @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
-      redirect_to admin_genre_path(@genre.id)
+      redirect_to admin_genres_path
     else
-      @genres = Genre.all
-      render "edit"
+      render :edit
     end
   end
-  
+
   def destroy
   end
 
 
 private
-def genre_params
-  params.require(:genre).permit(:name)
-end
+  def genre_params
+    params.require(:genre).permit(:name)
+  end
 
 end
