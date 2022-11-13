@@ -73,3 +73,9 @@ Things you may want to cover:
       <div class="row no-gutters"></div>
         <div class="col-md-4"></div>
   </footer>
+  
+  t.references :genre, foreign_key: true
+      t.string :name
+      t.text :introduction
+      t.integer :price
+      t.boolean :is_activ, default: true
