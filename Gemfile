@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -60,9 +60,10 @@ gem 'font-awesome-sass'
 gem "net-smtp"
 
 # 画像投稿用gem
-gem "refile", require: "refile/rails", github: 'manfe/refile'
+# gem "refile", require: "refile/rails", github: 'manfe/refile'
 # 画像加工用（サイズ調整など）gem
-gem "refile-mini_magick"
+# gem "refile-mini_magick"
 
 gem "enum_help"
 
+gem 'kaminari','~> 1.2.1'

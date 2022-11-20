@@ -29,7 +29,8 @@
 
   <div class = "table">
     <%= f.label "ジャンル" %>
-    <%= f.select :genre, ['ケーキ', 'プリン', '焼き菓子', 'キャンディ'], {include_blank: '---'} %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+    <!--<= f.select :genre, ['ケーキ', 'プリン', '焼き菓子', 'キャンディ'], {include_blank: '---'} %>-->
   </div>
 
   <div class = "table">
