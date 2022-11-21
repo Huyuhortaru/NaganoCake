@@ -21,6 +21,7 @@ Rails.application.routes.draw do
  # get 'admin/genres/:id/edit' => 'admin/genres#edit'
 
  get 'admin' => 'admin/home#top'
+ # get '/admin/items/:id', to: 'admin#items'
 
 
  #管理者権限

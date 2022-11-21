@@ -7,6 +7,10 @@
     <li><%= link_to 'ログアウト', destroy_customer_session_path %></li>
 
   </ul>
+  
+  <div class="search_box">
+    <input type="text" placeholder="Search">
+　</div>
 
   <h5>商品詳細</h5>
 
@@ -14,20 +18,18 @@
   <%= image_tag @item.get_image(100,100) %>
 
 
-
-
   <div class = "table">
       <tr>
         <p>商品名 <%= @item.name %></p>
         <p>商品説明 <%= @item.introduction %></p>
         <p>ジャンル <%= @item.genre.name %></p>
-        <p>税込価格<br>(税抜価格) <%= @item.price %>(<%= (@item.price / 1.08).ceil %>)円</p>
-        <p>販売ステータス
-          <% if @item.is_active == true %>
-            販売中
-          <% else %>
-            販売停止中
-          <% end %>
+        <p>税込価格</p>(税抜価格) <%= @item.price %>(<%= (@item.price / 1.08).ceil %>)円 
+        <p>販売ステータス 
+        <% if @item.is_active == true %>
+          販売中
+        <% else %>
+          販売停止中
+        <% end %></p>
       </tr>
   </div>
 
