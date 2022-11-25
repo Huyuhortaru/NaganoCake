@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
  get 'admin' => 'admin/home#top'
  # get '/admin/items/:id', to: 'admin#items'
+ 
+ # get '/customers/sign_out' => 'devise/sessions#destroy'
 
 
  #管理者権限
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
- # root to: "admin/homes#top"
+ 
+ # root to:"homes#top"
 
 

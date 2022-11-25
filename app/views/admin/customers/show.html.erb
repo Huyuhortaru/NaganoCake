@@ -1,0 +1,40 @@
+  <ul>
+
+    <li><%= link_to '商品一覧', admin_items_path %></li>
+    <li><%= link_to '会員一覧', admin_customers_path %></li>
+    <li><%= link_to '注文履歴一覧', admin_path %></li>
+    <li><%= link_to 'ジャンル一覧', admin_genres_path %></li>
+    <li><%= link_to 'ログアウト', destroy_customer_session_path %></li>
+
+  </ul>
+
+  <div class="search_box">
+    <input type="text" placeholder="Search">
+　</div>
+　
+　<h5><%= customer.name %>さんの会員詳細</h5>
+　
+　<div class = "table">
+      <tr>
+        <p>会員ID <%= @customer.id %></p>
+        <p>氏名 <%= @customer.last_name.first_name %></p>
+        <p>フリガナ <%= @customer.last_name_kana.first_name_kana %></p>
+        <p>郵便番号 <%= @customer.postal_code %></p>
+        <p>住所 <%= (@customer.address %> </p>
+        <p>電話番号 <%= @customer.telephone_number %></p>
+        <p>メールアドレス <%= @customer.email %></p>
+        <p>会員ステータス 
+        <% if @customer.is_delete == false %>
+          有効
+        <% else %>
+          退会
+        <% end %></p>
+      </tr>
+  </div>
+
+  <div class = "table">
+    <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn_sm btn-success" %>
+  </div>
+  
+  
+　

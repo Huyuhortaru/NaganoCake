@@ -1,0 +1,66 @@
+  <ul>
+
+    <li><%= link_to '商品一覧', admin_items_path %></li>
+    <li><%= link_to '会員一覧', admin_customers_path %></li>
+    <li><%= link_to '注文履歴一覧', admin_path %></li>
+    <li><%= link_to 'ジャンル一覧', admin_genres_path %></li>
+    <li><%= link_to 'ログアウト', destroy_customer_session_path %></li>
+
+  </ul>
+
+  <div class="search_box">
+    <input type="text" placeholder="Search">
+　</div>
+
+　<h5><%= customer.name %>さんの会員情報編集</h5>
+
+　<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+
+  <div class = "table">
+    <%= f.label "会員ID" %>
+    <%= f.file_field :id %>
+  </div>
+
+  <div class = "table">
+    <%= f.label "氏名" %>
+    <%= f.text_field :last_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class = "table">
+    <%= f.label "フリガナ" %>
+    <%= f.text_field :last_name_kana %>
+    <%= f.text_field :first_name_kana %>
+  </div>
+
+  <div class = "table">
+    <%= f.label "郵便番号" %>
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class = "table">
+    <%= f.label "住所" %>
+    <%= f.text_area :address %>
+  </div>
+
+  <div class = "table">
+    <%= f.label "電話番号" %>
+    <%= f.text_field :telephone_number %>
+  </div>
+
+  <div class = "table">
+    <%= f.label "メールアドレス" %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class = "table">
+    <%= f.label "販売ステータス" %>
+    <label><%= f.radio_button :is_delete, false %> 有効 </label>
+    <label><%= f.radio_button :is_delete, true %> 退会</label>
+  </div>
+
+  <div class = "table">
+    <%= f.submit "変更を保存", class: "btn btn_sm btn-success" %>
+  </div>
+
+  <% end %>
