@@ -16,20 +16,21 @@ Rails.application.routes.draw do
  }
 
  # 顧客表示部分
-
+ namespace :public do
+ get "/" => 'homes#top'
  get 'home/about' => 'homes#about'
- # get 'admin/items' => 'admin#items'
- # get 'admin/genres/:id/edit' => 'admin/genres#edit'
-
  
- # get '/admin/items/:id', to: 'admin#items'
-
- # get '/customers/sign_out' => 'devise/sessions#destroy'
+end
+ 
 
 
  #管理者権限
  namespace :admin do
    get "/" => 'homes#top'
+   # get 'admin/items' => 'admin#items'
+   # get 'admin/genres/:id/edit' => 'admin/genres#edit'
+   # get '/admin/items/:id', to: 'admin#items'
+   # get '/customers/sign_out' => 'devise/sessions#destroy'
    resources :customers, only: [:index, :show, :edit, :update] do
     end
 
