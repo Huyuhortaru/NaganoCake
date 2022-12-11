@@ -1,4 +1,3 @@
-<h1>top</h1>
 
 <!--イメージ(画像)-->
 <p>ようこそ、ながのCAKEへ！</br>
@@ -7,10 +6,13 @@
 購入には会員登録が必要になります。</p>
 
 <div class = "table">
+
   <h3><strong>新着商品</strong></h3>
 
   <% @items.each do |item| %>
-    <%= item.name %>
+    <td><% link_to item.image, public_item_path(item.id) %></td>
+    <td><%= item.name %></td>
+    <td>¥<%= item.price %></td>
   <% end %>
 
 

@@ -17,11 +17,18 @@ Rails.application.routes.draw do
 
  # 顧客表示部分
  namespace :public do
- get "/" => 'homes#top'
- get 'home/about' => 'homes#about'
- 
+   get "/" => 'homes#top'
+   get 'home/about' => 'homes#about'
+   get 'customers/my_page' => 'customers#show'
+
+   resources :items, only: [:show, :edit, :create, :update] do
+   end
+   
+   resources :customers, only: [:edit, :update, :unsubscribe, :withdraw] do
+   end
+
 end
- 
+
 
 
  #管理者権限
@@ -32,7 +39,7 @@ end
    # get '/admin/items/:id', to: 'admin#items'
    # get '/customers/sign_out' => 'devise/sessions#destroy'
    resources :customers, only: [:index, :show, :edit, :update] do
-    end
+   end
 
    resources :genres, only: [:index, :edit, :create, :update] do
    end
