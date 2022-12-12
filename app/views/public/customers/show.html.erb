@@ -1,12 +1,36 @@
 <h5>マイページ</h5>
 
+<%= form_with model: @customer, url: public_customers_edit_path do |f| %>
 
-<strong><h5>登録情報</h5></strong>
-
-<%= form_with model: @customer, url: edit_public_customer_path do |f| %>
+  <h5><strong>登録情報</strong></h5>
 
   <div class = "table">
     <%= f.submit "編集する", class: "btn btn-sm btn-success" %>
   </div>
 
 <% end %>
+
+<table border="1">
+  <tr>
+    <th>氏名</th>
+    <th>カナ</th>
+    <th>郵便番号</th>
+    <th>住所</th>
+    <th>電話番号</th>
+    <th>メールアドレス</th>
+  </tr>
+
+<% @customers.each do |customer| %>
+
+  <tr>
+    <td><%= customer.last_name+customer.first.name %></td>
+    <td><%= customer.last_name_kana+customer.first.name_kana %></td>
+    <td><%= customer.postal_code %></td>
+    <td><%= customer.address %></td>
+    <td><%= customer.telephone_number %></td>
+    <td><%= customer.email %></td>
+  </tr>
+
+<% end %>
+
+</table>

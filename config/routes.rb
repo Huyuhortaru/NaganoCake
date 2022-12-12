@@ -20,11 +20,12 @@ Rails.application.routes.draw do
    get "/" => 'homes#top'
    get 'home/about' => 'homes#about'
    get 'customers/my_page' => 'customers#show'
+   get 'customers/edit' => 'customers#edit'
 
    resources :items, only: [:show, :edit, :create, :update] do
    end
-   
-   resources :customers, only: [:edit, :update, :unsubscribe, :withdraw] do
+
+   resources :customers, only: [:update, :unsubscribe, :withdraw] do
    end
 
 end
