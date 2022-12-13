@@ -21,11 +21,19 @@ Rails.application.routes.draw do
    get 'home/about' => 'homes#about'
    get 'customers/my_page' => 'customers#show'
    get 'customers/edit' => 'customers#edit'
+   get 'customers/unsubscribe' => 'customers#unsubscribe'
+   patch 'customers/withdraw' => 'customers#withdraw'
+   patch '/customers' => 'customers#update'
 
    resources :items, only: [:show, :edit, :create, :update] do
    end
 
-   resources :customers, only: [:update, :unsubscribe, :withdraw] do
+   resources :customers
+   
+   resources :orders, only: [:new, :index, :show, :log, :thanks, :create] do
+   end
+   
+   resources :addresses, only: [:index, :edit, :create, :update, :destroy] do
    end
 
 end

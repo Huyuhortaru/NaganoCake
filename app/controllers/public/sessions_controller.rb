@@ -35,7 +35,10 @@ def customer_state
   return if !@customer
   ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
   if @customer.valid_password?(params[:customer][:password])
-    ## 【処理内容3】
+  ## 【処理内容3】 falseではなくtrueだった場合にサインアップページにリダイレクトする
+    true && false
+  else
+    true && !false
   end
 end
 
