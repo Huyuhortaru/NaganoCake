@@ -29,11 +29,14 @@ Rails.application.routes.draw do
    end
 
    resources :customers
-   
+
    resources :orders, only: [:new, :index, :show, :log, :thanks, :create] do
    end
-   
+
    resources :addresses, only: [:index, :edit, :create, :update, :destroy] do
+   end
+
+   resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all] do
    end
 
 end
